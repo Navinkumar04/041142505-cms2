@@ -1,0 +1,19 @@
+{# Single Collection Page Layout - Unique image banner for each collection #}
+{% if collection.handle == 'baked-goods' %}
+    <img src="{{ 'baked-goods-banner.jpg' | asset_url }}" alt="Baked Goods Banner">
+{% elsif collection.handle == 'jams-and-preserves' %}
+    <img src="{{ 'jams-banner.jpg' | asset_url }}" alt="Jams and Preserves Banner">
+{% endif %}
+
+<h1>{{ collection.title }}</h1>
+<div class="collection-products">
+    {% for product in collection.products %}
+        <div class="product-item">
+            <a href="{{ product.url }}">
+                <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                <h2>{{ product.title }}</h2>
+                <p>{{ product.price | money }}</p>
+            </a>
+        </div>
+    {% endfor %}
+</div>
