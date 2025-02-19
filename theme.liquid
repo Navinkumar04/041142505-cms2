@@ -1,0 +1,17 @@
+{# GDPR Banner #}
+<div id="gdpr-banner" style="display: none; position: fixed; bottom: 0; width: 100%; background: #333; color: #fff; padding: 10px; text-align: center;">
+    <p>This website uses cookies to ensure you get the best experience on our website. <a href="/privacy-policy" style="color: #fff;">Learn more</a></p>
+    <button id="accept-cookies" style="background: #fff; color: #333; border: none; padding: 5px 10px; cursor: pointer;">Accept</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (!sessionStorage.getItem('gdprAccepted')) {
+            document.getElementById('gdpr-banner').style.display = 'block';
+        }
+        document.getElementById('accept-cookies').onclick = function() {
+            sessionStorage.setItem('gdprAccepted', 'true');
+            document.getElementById('gdpr-banner').style.display = 'none';
+        };
+    });
+</script>
