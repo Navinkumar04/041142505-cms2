@@ -1,0 +1,12 @@
+{# Homepage Collections List Layout - Add title #}
+<h2>Browse Our Collections</h2>
+<div class="collection-list">
+    {% for collection in collections %}
+        <div class="collection-item">
+            <a href="{{ collection.url }}">
+                <img src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }}">
+                <h3>{{ collection.title }}</h3>
+            </a>
+        </div>
+    {% endfor %}
+</div>
