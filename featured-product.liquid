@@ -1,0 +1,7 @@
+{# Featured Product Layout - Move product title below image #}
+<div class="featured-product">
+    <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.price | money }}</p>
+    <a href="{{ product.url }}" class="btn">View Product</a>
+</div>
