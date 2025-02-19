@@ -1,0 +1,25 @@
+{# Shopping Cart Layout - Move Quantity column before Price #}
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th> {# Moved Quantity column here #}
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart.items %}
+            <tr>
+                <td>{{ item.product.title }}</td>
+                <td>
+                    <input type="number" value="{{ item.quantity }}" min="1">
+                </td>
+                <td>{{ item.price | money }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{# Move Update Cart button before Continue Shopping button #}
+<button type="submit">Update Cart</button>
+<a href="/collections/all">Continue Shopping</a>
